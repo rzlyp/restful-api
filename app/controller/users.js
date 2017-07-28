@@ -49,7 +49,7 @@ class UserCtrl{
 				});
 			}else{
 				let token = jwt.sign(doc, config.token_secret,{
-					expiresIn : 60
+					expiresIn : 6000
 				});
 				let data = {
 					name : doc.name,
