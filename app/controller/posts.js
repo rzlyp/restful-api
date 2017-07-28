@@ -56,22 +56,10 @@ class PostCtrl{
 			if(err)
 				console.log(err);
 			
-			console.log(doc);
-
-			let stringTitle = crypto.AES.decrypt((doc.title),config.token_secret)
-			let stringBody = crypto.AES.decrypt((doc.body), config.token_secret)
-			let decryptTitle = stringTitle.toString(crypto.enc.Utf8);
-			console.log(stringTitle);
-
-			let data = {
-				title :decryptTitle ,
-				body :"ksk" ,
-				category : doc.category
-			}
 			res.json({
 				status_code : 200,
 				message : 'successfuly get post by id '+req.params.id,
-				data : data
+				data : doc
 			})
 		});
 	}
